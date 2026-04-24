@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <title>Portfólio | Daniel Felix</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff;
+            overflow: hidden; 
+        }
+
+        
+        .main-container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        
+        .sidebar {
+            width: 300px;
+            background-color: #000000;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 0;
+            border-right: 1px solid #000000;
+            flex-shrink: 0;
+        }
+
+       
+        .profile-info {
+            padding: 0 20px 30px 20px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #760000;
+            margin-bottom: 20px;
+            background-color: #333;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover { transform: scale(1.05); }
+
+        .profile-info h1 { font-size: 1.3rem; margin-bottom: 5px; color: #fff; }
+        .profile-info p { font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+
+        
+        .tabs {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        .tab-btn {
+            padding: 18px 30px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background: none;
+            color: #bbb;
+            text-align: left;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-left: 4px solid transparent;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .tab-btn:hover {
+            color: #fff;
+            background: #252525;
+            padding-left: 45px; 
+            border-left: 4px solid #760000 ;
+        }
+
+        .tab-btn.active {
+            background: #2c2c2c;
+            color: #982121;
+            border-left: 4px solid #982121;
+            padding-left: 45px;
+        }
+
+        
+        .content-area {
+            flex: 1;
+            padding: 60px 80px;
+            overflow-y: auto;
+            background-color: #fcfcfc;
+        }
+
+        .tab-content {
+            display: none;
+            max-width: 900px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        
+        h2 { 
+            font-size: 2.2rem; 
+            margin-bottom: 30px; 
+            color: #1a1a1a; 
+            border-bottom: 3px solid #760000; 
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; color: #444; }
+
+        /* GRID DE PROJETOS */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 10px;
+        }
+
+        .project-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-card {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 25px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-color: #760000;
+        }
+
+        .project-card h3 { margin-bottom: 12px; color: #1a1a1a; font-size: 1.2rem; }
+        
+        .tag-moda {
+            background: #fce4ec;
+            color: #d81b60;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        /* LISTAS */
+        ul { list-style: none; }
+        li { 
+            margin-bottom: 15px; 
+            font-size: 1.1rem; 
+            padding-left: 25px; 
+            position: relative; 
+            color: #444;
+        }
+        li::before { 
+            content: "→"; 
+            position: absolute; 
+            left: 0; 
+            color: #760000; 
+            font-weight: bold; 
+        }
+
+        /* LINKS DE CONTATO */
+        .contact-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .contact-link:hover { color: #1a1a1a; }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .main-container { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; padding: 20px 0; border-right: none; }
+            .profile-img { width: 90px; height: 90px; }
+            .tab-btn { text-align: center; padding: 15px; border-left: none; }
+            .tab-btn:hover, .tab-btn.active { padding-left: 15px; border-bottom: 3px solid #3498db; }
+            .content-area { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <aside class="sidebar">
+        <div class="profile-info">
+            <img src="imagens/Hugh!! (with better quality).webp" alt="Daniel Felix" class="profile-img">
+            <h1>Daniel Felix Almeida</h1>
+            <p>Engenharia Mecânica & Design</p>
+        </div>
+
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'sobre')">Sobre Mim</button>
+            <button class="tab-btn" onclick="openTab(event, 'habilidades')">Habilidades</button>
+            <button class="tab-btn" onclick="openTab(event, 'projetos')">Projetos</button>
+            <button class="tab-btn" onclick="openTab(event, 'contatos')">Contatos</button>
+        </nav>
+    </aside>
+
+    <main class="content-area">
+        
+        <div id="sobre" class="tab-content active">
+            <h2>Sobre Mim</h2>
+            <p>Sou um profissional multidisciplinar em busca de consolidação na área de <strong>Engenharia Mecânica</strong>. Unindo o rigor técnico da engenharia com a criatividade do design, desenvolvo soluções focadas em funcionalidade e estética.</p>
+            <p>Atualmente, estou expandindo meus conhecimentos em <strong>Web Design - Front End</strong> (Unibes 2026), capacitando-me para criar interfaces digitais de alta performance.</p>
+            <p><strong>Formação:</strong> Ensino Médio Completo<br>
+               <strong>Idiomas:</strong> Inglês Intermediário</p>
+        </div>
+
+        <div id="habilidades" class="tab-content">
+            <h2>Habilidades Técnicas</h2>
+            <ul>
+                <li><strong>Design de Moda:</strong> Desenvolvimento de conceitos e produção visual têxtil.</li>
+                <li><strong>Web Front-End:</strong> Domínio de HTML5, CSS3 e lógica em JavaScript.</li>
+                <li><strong>Produção Audiovisual:</strong> Mixagem de áudio e edição de vídeo profissional.</li>
+                <li><strong>Design Gráfico:</strong> Criação de identidades visuais e artes digitais.</li>
+                <li><strong>Administrativo:</strong> Gestão de rotinas de escritório.</li>
+            </ul>
+        </div>
+
+        <div id="projetos" class="tab-content">
+            <h2>Projetos Selecionados</h2>
+            <p>Clique nos cards para ver os detalhes de cada trabalho:</p>
+            
+            <div class="project-grid">
+                <a href="https://app.kittl.com/project/cmoa3pk0i0fx50ica0ktnyy5a" target="_blank" class="project-link">
+                    <div class="project-card">
+                        <h3>Design de Moda</h3>
+                        <p>Desenvolvimento de conceitos de vestuário e expressões artísticas contemporâneas.</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/DanielUnibes" target="_blank" class="project-link">
+                    <div class="project-card">
+                        <h3>Web Front-End</h3>
+                        <p>Criação de sites e interfaces responsivas focadas em UX/UI.</p>
+                    </div>
+                </a>
+
+                <a href="https://www.bandlab.com/dwnete" target="_blank" class="project-link">
+                    <div class="project-card">
+                        <h3>Mixagem de Áudio</h3>
+                        <p>Produção musical e engenharia de som para projetos audiovisuais.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div id="contatos" class="tab-content">
+            <h2>Canais de Contato</h2>
+            <p>Estou disponível para novas oportunidades e parcerias:</p>
+            
+            <p>📍 <strong>Localização:</strong> São Paulo, SP</p>
+            
+            <p>📞 <strong>WhatsApp:</strong> 
+                <a href="https://wa.me/5511913613238" target="_blank" class="contact-link">11 91361-3238</a>
+            </p>
+            
+            <p>✉️ <strong>E-mail:</strong> 
+                <a href="mailto:dwnete@proton.me" class="contact-link">dwnete@proton.me</a>
+            </p>
+
+            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
+            <p style="font-size: 0.9rem; color: #999;">Daniel Felix | 2026 | Brasileiro</p>
+        </div>
+
+    </main>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        let contents = document.getElementsByClassName("tab-content");
+        let buttons = document.getElementsByClassName("tab-btn");
+
+        // Esconde todos os conteúdos
+        for (let i = 0; i < contents.length; i++) {
+            contents[i].classList.remove("active");
+        }
+
+        // Remove o estado ativo dos botões
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+
+        // Mostra a aba atual e ativa o botão
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
