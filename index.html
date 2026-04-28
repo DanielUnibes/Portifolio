@@ -11,51 +11,54 @@
         .modal {
             display: none; /* Escondido por padrão */
             position: fixed;
-            z-index: 999;
+            z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.7); /* Fundo escuro */
-            backdrop-filter: blur(5px); /* Efeito de desfoque */
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
         }
 
         .modal-content {
             background-color: #fff;
             margin: 10% auto;
-            padding: 25px;
+            padding: 30px;
             border-radius: 15px;
-            width: 80%;
+            width: 85%;
             max-width: 500px;
             position: relative;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            animation: entrada 0.3s ease-out;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: deslizar 0.4s ease;
             color: #333;
         }
 
-        @keyframes entrada {
-            from { transform: translateY(-50px); opacity: 0; }
+        @keyframes deslizar {
+            from { transform: translateY(-30px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
 
         .fechar-modal {
             position: absolute;
             right: 20px;
-            top: 10px;
-            font-size: 28px;
-            font-weight: bold;
+            top: 15px;
+            font-size: 24px;
             cursor: pointer;
-            color: #666;
-        }
-
-        .fechar-modal:hover { color: #000; }
-
-        /* Estilo para a foto parecer clicável */
-        .profile-img {
-            cursor: pointer;
+            color: #999;
             transition: 0.3s;
         }
-        .profile-img:hover { transform: scale(1.05); }
+
+        .fechar-modal:hover { color: #333; }
+
+        /* Estilo para a foto de perfil */
+        .profile-img {
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
     </style>
 </head>
 <body>
@@ -63,7 +66,7 @@
 <div class="main-container">
     <aside class="sidebar">
         <div class="profile-info">
-            <img src="imagens/Hugh!! (with better quality).webp" alt="Daniel Felix" class="profile-img" id="fotoBotao">
+            <img src="imagens/Hugh!! (with better quality).webp" alt="Daniel Felix" class="profile-img" id="abrirModal">
             
             <h1>Daniel Felix Almeida</h1>
             <p>Engenharia & Digital Design</p>
@@ -81,28 +84,60 @@
         <div id="sobre" class="tab-content active">
             <h2>Sobre Mim</h2>
             <p>Sou um profissional multidisciplinar que une o <strong>rigor técnico da Engenharia Mecânica</strong> à <strong>fluidez do Design Digital</strong>.</p>
-            <p>Atualmente em especialização em <strong>Web Design Front-End</strong> (2026).</p>
+            <p>Atualmente em especialização em <strong>Web Design Front-End</strong> (2026), foco na criação de interfaces de alta performance e experiências dinâmicas de usuário (UX/UI).</p>
+            <p><strong>Localização:</strong> São Paulo, SP<br>
+               <strong>Idiomas:</strong> Inglês Intermediário / Português</p>
         </div>
-        </main>
+
+        <div id="habilidades" class="tab-content" style="display: none;">
+            <h2>Habilidades & Tech</h2>
+            <div class="skills-list">
+                <div class="skill-item"><strong>Web Front-End</strong>: HTML5, CSS3 e interfaces responsivas.</div>
+                <div class="skill-item"><strong>IA & Processo Criativo</strong>: Uso estratégico de IA para design.</div>
+                <div class="skill-item"><strong>Audiovisual Dinâmico</strong>: Edição focada em alta retenção.</div>
+                <div class="skill-item"><strong>Design de Moda</strong>: Conceitos autorais e sustentáveis.</div>
+            </div>
+        </div>
+
+        <div id="projetos" class="tab-content" style="display: none;">
+            <h2>Projetos Selecionados</h2>
+            <div class="project-grid">
+                <a href="https://github.com/DanielUnibes" target="_blank" class="project-link">
+                    <div class="project-card"><h3>Interface & Web</h3></div>
+                </a>
+                <a href="https://www.kittl.com/design/mobiliza-hood-i3A7zXuv" target="_blank" class="project-link">
+                    <div class="project-card"><h3>Fashion Design</h3></div>
+                </a>
+            </div>
+        </div>
+
+        <div id="contatos" class="tab-content" style="display: none;">
+            <h2>Vamos Conversar?</h2>
+            <p>📱 WhatsApp: <a href="https://wa.me/5511913613238" target="_blank">11 91361-3238</a></p>
+            <p>✉️ E-mail: <a href="mailto:danielfalmeida1808@gmail.com">danielfalmeida1808@gmail.com</a></p>
+        </div>
+    </main>
 </div>
 
 <div id="meuModal" class="modal">
     <div class="modal-content">
         <span class="fechar-modal" id="fechar">&times;</span>
-        <h2>Redes Sociais & Info</h2>
-        <p>Olá! Você clicou na minha foto. Aqui você pode adicionar links rápidos, um QR Code ou qualquer informação extra.</p>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin: 10px 0;"><a href="#" style="color: #007bff; text-decoration: none;">🔗 LinkedIn</a></li>
-            <li style="margin: 10px 0;"><a href="#" style="color: #333; text-decoration: none;">📸 Instagram</a></li>
-        </ul>
+        <h2>Links Rápidos</h2>
+        <p>Você pode colocar aqui o seu Instagram, LinkedIn ou um botão para baixar seu currículo.</p>
+        <hr>
+        <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
+            <a href="#" style="text-decoration: none; font-weight: bold; color: #0077b5;">LinkedIn</a>
+            <a href="#" style="text-decoration: none; font-weight: bold; color: #e4405f;">Instagram</a>
+        </div>
     </div>
 </div>
 
 <script>
-    // --- LÓGICA DAS ABAS LATERAIS (SEU CÓDIGO) ---
+    // --- LÓGICA DAS ABAS LATERAIS ---
     function openTab(evt, tabName) {
         let contents = document.getElementsByClassName("tab-content");
         let buttons = document.getElementsByClassName("tab-btn");
+        
         for (let i = 0; i < contents.length; i++) {
             contents[i].style.display = 'none';
             contents[i].classList.remove("active");
@@ -110,6 +145,7 @@
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove("active");
         }
+        
         const activeContent = document.getElementById(tabName);
         activeContent.style.display = 'block';
         setTimeout(() => activeContent.classList.add("active"), 10);
@@ -118,24 +154,15 @@
 
     // --- LÓGICA DA ABA INTERNA (MODAL) ---
     const modal = document.getElementById("meuModal");
-    const btnFoto = document.getElementById("fotoBotao");
+    const btnFoto = document.getElementById("abrirModal");
     const spanFechar = document.getElementById("fechar");
 
-    // Abre ao clicar na foto
-    btnFoto.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    // Fecha ao clicar no (X)
-    spanFechar.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // Fecha se o usuário clicar fora da caixinha branca
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
+    btnFoto.onclick = () => modal.style.display = "block";
+    spanFechar.onclick = () => modal.style.display = "none";
+    
+    // Fecha se clicar fora da caixa branca
+    window.onclick = (event) => {
+        if (event.target == modal) modal.style.display = "none";
     }
 </script>
 
