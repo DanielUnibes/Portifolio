@@ -7,14 +7,55 @@
     <link rel="stylesheet" href="style.css">
     <title>Portfólio | Daniel Felix</title>
     <style>
-        /* Adicionando um estilo rápido para garantir que a foto pareça um botão */
+        /* --- ESTILOS DA ABA INTERNA (MODAL) --- */
+        .modal {
+            display: none; /* Escondido por padrão */
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7); /* Fundo escuro */
+            backdrop-filter: blur(5px); /* Efeito de desfoque */
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 25px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: entrada 0.3s ease-out;
+            color: #333;
+        }
+
+        @keyframes entrada {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .fechar-modal {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .fechar-modal:hover { color: #000; }
+
+        /* Estilo para a foto parecer clicável */
         .profile-img {
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: 0.3s;
         }
-        .profile-img:hover {
-            transform: scale(1.05);
-        }
+        .profile-img:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
@@ -22,9 +63,7 @@
 <div class="main-container">
     <aside class="sidebar">
         <div class="profile-info">
-            <a href="https://LINK_DO_SEU_PERFIL_AQUI.com" target="_blank" rel="noopener noreferrer">
-                <img src="imagens/Hugh!! (with better quality).webp" alt="Daniel Felix" class="profile-img" id="redes">
-            </a>
+            <img src="imagens/Hugh!! (with better quality).webp" alt="Daniel Felix" class="profile-img" id="fotoBotao">
             
             <h1>Daniel Felix Almeida</h1>
             <p>Engenharia & Digital Design</p>
@@ -39,102 +78,64 @@
     </aside>
 
     <main class="content-area">
-        
         <div id="sobre" class="tab-content active">
             <h2>Sobre Mim</h2>
-            <p>Sou um profissional multidisciplinar que une o <strong>rigor técnico da Engenharia Mecânica</strong> à <strong>fluidez do Design Digital</strong>. Meu foco é desenvolver soluções que não são apenas funcionais, mas visualmente impactantes.</p>
-            <p>Atualmente em especialização em <strong>Web Design Front-End</strong> (2026), foco na criação de interfaces de alta performance e experiências dinâmicas de usuário (UX/UI).</p>
-            <p><strong>Localização:</strong> São Paulo, SP<br>
-               <strong>Idiomas:</strong> Inglês Intermediário / Português</p>
+            <p>Sou um profissional multidisciplinar que une o <strong>rigor técnico da Engenharia Mecânica</strong> à <strong>fluidez do Design Digital</strong>.</p>
+            <p>Atualmente em especialização em <strong>Web Design Front-End</strong> (2026).</p>
         </div>
+        </main>
+</div>
 
-        <div id="habilidades" class="tab-content" style="display: none;">
-            <h2>Habilidades & Tech</h2>
-            <div class="skills-list">
-                <div class="skill-item">
-                    <strong>Web Front-End</strong>
-                    <p>Domínio de HTML5, CSS3 e interfaces responsivas com foco em micro-animações e efeitos de scroll.</p>
-                </div>
-                <div class="skill-item">
-                    <strong>IA & Processo Criativo</strong>
-                    <p>Uso avançado de Inteligência Artificial como suporte estratégico para design e produtividade.</p>
-                </div>
-                <div class="skill-item">
-                    <strong>Audiovisual Dinâmico</strong>
-                    <p>Edição e mixagem profissional focada em formatos de alta retenção (Reels e Shorts).</p>
-                </div>
-                <div class="skill-item">
-                    <strong>Design de Moda & Têxtil</strong>
-                    <p>Desenvolvimento de conceitos autorais e sustentáveis, unindo arte e técnica.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="projetos" class="tab-content" style="display: none;">
-            <h2>Projetos Selecionados</h2>
-            <div class="project-grid">
-                <a href="https://github.com/DanielUnibes" target="_blank" class="project-link">
-                    <div class="project-card">
-                        <h3>Interface & Web</h3>
-                        <p>Desenvolvimento de Landing Pages focadas em experiência do usuário.</p>
-                    </div>
-                </a>
-                <a href="https://www.kittl.com/design/mobiliza-hood-i3A7zXuv" target="_blank" class="project-link">
-                    <div class="project-card">
-                        <h3>Fashion Design</h3>
-                        <p>Criação de vestuário contemporâneo e identidade visual para marcas.</p>
-                    </div>
-                </a>
-                <a href="https://www.bandlab.com/dwnete" target="_blank" class="project-link">
-                    <div class="project-card">
-                        <h3>Sound Engineering</h3>
-                        <p>Produção e engenharia de som para conteúdo audiovisual.</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div id="contatos" class="tab-content" style="display: none;">
-            <h2>Vamos Conversar?</h2>
-            <p>Disponível para projetos desafiadores e colaborações inovadoras.</p>
-            <div style="margin-top: 20px;">
-                <p>📱 <strong>WhatsApp:</strong><br>
-                <a href="https://wa.me/5511913613238" target="_blank" class="contact-link">11 91361-3238</a></p>
-                <p>✉️ <strong>E-mail:</strong><br>
-                <a href="mailto:danielfalmeida1808@gmail.com" class="contact-link">danielfalmeida1808@gmail.com</a></p>
-            </div>
-            <hr style="margin: 40px 0; border: 0; border-top: 1px solid #ddd;">
-            <p style="font-size: 0.85rem; color: #aaa;">Daniel Felix | São Paulo, Brasil | © 2026</p>
-        </div>
-    </main>
+<div id="meuModal" class="modal">
+    <div class="modal-content">
+        <span class="fechar-modal" id="fechar">&times;</span>
+        <h2>Redes Sociais & Info</h2>
+        <p>Olá! Você clicou na minha foto. Aqui você pode adicionar links rápidos, um QR Code ou qualquer informação extra.</p>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin: 10px 0;"><a href="#" style="color: #007bff; text-decoration: none;">🔗 LinkedIn</a></li>
+            <li style="margin: 10px 0;"><a href="#" style="color: #333; text-decoration: none;">📸 Instagram</a></li>
+        </ul>
+    </div>
 </div>
 
 <script>
+    // --- LÓGICA DAS ABAS LATERAIS (SEU CÓDIGO) ---
     function openTab(evt, tabName) {
-        // Esconde todos os conteúdos das abas
         let contents = document.getElementsByClassName("tab-content");
+        let buttons = document.getElementsByClassName("tab-btn");
         for (let i = 0; i < contents.length; i++) {
             contents[i].style.display = 'none';
             contents[i].classList.remove("active");
         }
-
-        // Remove a classe "active" de todos os botões
-        let buttons = document.getElementsByClassName("tab-btn");
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove("active");
         }
-
-        // Mostra a aba atual e adiciona a classe active ao botão
         const activeContent = document.getElementById(tabName);
         activeContent.style.display = 'block';
-        
-        // Timeout para permitir a transição suave do CSS
         setTimeout(() => activeContent.classList.add("active"), 10);
-        
         evt.currentTarget.classList.add("active");
+    }
 
-        // Reseta o scroll para o topo ao trocar de aba
-        document.querySelector('.content-area').scrollTop = 0;
+    // --- LÓGICA DA ABA INTERNA (MODAL) ---
+    const modal = document.getElementById("meuModal");
+    const btnFoto = document.getElementById("fotoBotao");
+    const spanFechar = document.getElementById("fechar");
+
+    // Abre ao clicar na foto
+    btnFoto.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // Fecha ao clicar no (X)
+    spanFechar.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Fecha se o usuário clicar fora da caixinha branca
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
 </script>
 
