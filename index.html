@@ -6,22 +6,25 @@
     <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <title>Portfólio | Daniel Felix</title>
+    <style>
+        /* Adicionando um estilo rápido para garantir que a foto pareça um botão */
+        .profile-img {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-<script>
-const redes = document.querySelector(".btn-enviar"); 
-const modal = document.getElementById("minhaAba");
-
-// 
-redes.addEventListener("click", function() {
-    modal.style.display = "block";
-});
-</script>
 
 <div class="main-container">
     <aside class="sidebar">
         <div class="profile-info">
-            <id="redes" img src="imagens/Hugh!! (with better quality).webp" alt="Daniel Felix" class="profile-img">
+            <a href="https://LINK_DO_SEU_PERFIL_AQUI.com" target="_blank" rel="noopener noreferrer">
+                <img src="imagens/Hugh!! (with better quality).webp" alt="Daniel Felix" class="profile-img" id="redes">
+            </a>
             
             <h1>Daniel Felix Almeida</h1>
             <p>Engenharia & Digital Design</p>
@@ -45,29 +48,29 @@ redes.addEventListener("click", function() {
                <strong>Idiomas:</strong> Inglês Intermediário / Português</p>
         </div>
 
-        <div id="habilidades" class="tab-content">
+        <div id="habilidades" class="tab-content" style="display: none;">
             <h2>Habilidades & Tech</h2>
             <div class="skills-list">
                 <div class="skill-item">
                     <strong>Web Front-End</strong>
-                    Domínio de HTML5, CSS3 e interfaces responsivas com foco em micro-animações e efeitos de scroll.
+                    <p>Domínio de HTML5, CSS3 e interfaces responsivas com foco em micro-animações e efeitos de scroll.</p>
                 </div>
                 <div class="skill-item">
                     <strong>IA & Processo Criativo</strong>
-                    Uso avançado de Inteligência Artificial como suporte estratégico para design e produtividade.
+                    <p>Uso avançado de Inteligência Artificial como suporte estratégico para design e produtividade.</p>
                 </div>
                 <div class="skill-item">
                     <strong>Audiovisual Dinâmico</strong>
-                    Edição e mixagem profissional focada em formatos de alta retenção (Reels e Shorts).
+                    <p>Edição e mixagem profissional focada em formatos de alta retenção (Reels e Shorts).</p>
                 </div>
                 <div class="skill-item">
                     <strong>Design de Moda & Têxtil</strong>
-                    Desenvolvimento de conceitos autorais e sustentáveis, unindo arte e técnica.
+                    <p>Desenvolvimento de conceitos autorais e sustentáveis, unindo arte e técnica.</p>
                 </div>
             </div>
         </div>
 
-        <div id="projetos" class="tab-content">
+        <div id="projetos" class="tab-content" style="display: none;">
             <h2>Projetos Selecionados</h2>
             <div class="project-grid">
                 <a href="https://github.com/DanielUnibes" target="_blank" class="project-link">
@@ -91,7 +94,7 @@ redes.addEventListener("click", function() {
             </div>
         </div>
 
-        <div id="contatos" class="tab-content">
+        <div id="contatos" class="tab-content" style="display: none;">
             <h2>Vamos Conversar?</h2>
             <p>Disponível para projetos desafiadores e colaborações inovadoras.</p>
             <div style="margin-top: 20px;">
@@ -108,23 +111,32 @@ redes.addEventListener("click", function() {
 
 <script>
     function openTab(evt, tabName) {
+        // Esconde todos os conteúdos das abas
         let contents = document.getElementsByClassName("tab-content");
-        let buttons = document.getElementsByClassName("tab-btn");
         for (let i = 0; i < contents.length; i++) {
-            contents[i].classList.remove("active");
             contents[i].style.display = 'none';
+            contents[i].classList.remove("active");
         }
+
+        // Remove a classe "active" de todos os botões
+        let buttons = document.getElementsByClassName("tab-btn");
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove("active");
         }
+
+        // Mostra a aba atual e adiciona a classe active ao botão
         const activeContent = document.getElementById(tabName);
         activeContent.style.display = 'block';
+        
+        // Timeout para permitir a transição suave do CSS
         setTimeout(() => activeContent.classList.add("active"), 10);
+        
         evt.currentTarget.classList.add("active");
+
+        // Reseta o scroll para o topo ao trocar de aba
         document.querySelector('.content-area').scrollTop = 0;
     }
 </script>
- <div id="redes">Clique em mim!</div>
-</div>
+
 </body>
 </html>
