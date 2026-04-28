@@ -1,170 +1,123 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <title>Portfólio | Daniel Felix</title>
-    <style>
-        /* --- ESTILOS DA ABA INTERNA (MODAL) --- */
-        .modal {
-            display: none; /* Escondido por padrão */
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: 10% auto;
-            padding: 30px;
-            border-radius: 15px;
-            width: 85%;
-            max-width: 500px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            animation: deslizar 0.4s ease;
-            color: #333;
-        }
-
-        @keyframes deslizar {
-            from { transform: translateY(-30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .fechar-modal {
-            position: absolute;
-            right: 20px;
-            top: 15px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #999;
-            transition: 0.3s;
-        }
-
-        .fechar-modal:hover { color: #333; }
-
-        /* Estilo para a foto de perfil */
-        .profile-img {
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
-        .profile-img:hover {
-            transform: scale(1.05);
-            filter: brightness(1.1);
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfólio | Daniel Felix</title>
 </head>
 <body>
 
 <div class="main-container">
-    <aside class="sidebar">
-        <div class="profile-info">
-            <img src="imagens/Hugh!! (with better quality).webp" alt="Daniel Felix" class="profile-img" id="abrirModal">
-            
-            <h1>Daniel Felix Almeida</h1>
-            <p>Engenharia & Digital Design</p>
-        </div>
+    <aside class="sidebar">
+        <div class="profile-info">
+            <id="redes" img src="imagens/Hugh!! (with better quality).webp" alt="Daniel Felix" class="profile-img">
+            
+            <h1>Daniel Felix Almeida</h1>
+            <p>Engenharia & Digital Design</p>
+        </div>
 
-        <nav class="tabs">
-            <button class="tab-btn active" onclick="openTab(event, 'sobre')">Sobre</button>
-            <button class="tab-btn" onclick="openTab(event, 'habilidades')">Habilidades</button>
-            <button class="tab-btn" onclick="openTab(event, 'projetos')">Projetos</button>
-            <button class="tab-btn" onclick="openTab(event, 'contatos')">Contato</button>
-        </nav>
-    </aside>
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'sobre')">Sobre</button>
+            <button class="tab-btn" onclick="openTab(event, 'habilidades')">Habilidades</button>
+            <button class="tab-btn" onclick="openTab(event, 'projetos')">Projetos</button>
+            <button class="tab-btn" onclick="openTab(event, 'contatos')">Contato</button>
+        </nav>
+    </aside>
 
-    <main class="content-area">
-        <div id="sobre" class="tab-content active">
-            <h2>Sobre Mim</h2>
-            <p>Sou um profissional multidisciplinar que une o <strong>rigor técnico da Engenharia Mecânica</strong> à <strong>fluidez do Design Digital</strong>.</p>
-            <p>Atualmente em especialização em <strong>Web Design Front-End</strong> (2026), foco na criação de interfaces de alta performance e experiências dinâmicas de usuário (UX/UI).</p>
-            <p><strong>Localização:</strong> São Paulo, SP<br>
-               <strong>Idiomas:</strong> Inglês Intermediário / Português</p>
-        </div>
+    <main class="content-area">
+        
+        <div id="sobre" class="tab-content active">
+            <h2>Sobre Mim</h2>
+            <p>Sou um profissional multidisciplinar que une o <strong>rigor técnico da Engenharia Mecânica</strong> à <strong>fluidez do Design Digital</strong>. Meu foco é desenvolver soluções que não são apenas funcionais, mas visualmente impactantes.</p>
+            <p>Atualmente em especialização em <strong>Web Design Front-End</strong> (2026), foco na criação de interfaces de alta performance e experiências dinâmicas de usuário (UX/UI).</p>
+            <p><strong>Localização:</strong> São Paulo, SP<br>
+               <strong>Idiomas:</strong> Inglês Intermediário / Português</p>
+        </div>
 
-        <div id="habilidades" class="tab-content" style="display: none;">
-            <h2>Habilidades & Tech</h2>
-            <div class="skills-list">
-                <div class="skill-item"><strong>Web Front-End</strong>: HTML5, CSS3 e interfaces responsivas.</div>
-                <div class="skill-item"><strong>IA & Processo Criativo</strong>: Uso estratégico de IA para design.</div>
-                <div class="skill-item"><strong>Audiovisual Dinâmico</strong>: Edição focada em alta retenção.</div>
-                <div class="skill-item"><strong>Design de Moda</strong>: Conceitos autorais e sustentáveis.</div>
-            </div>
-        </div>
+        <div id="habilidades" class="tab-content">
+            <h2>Habilidades & Tech</h2>
+            <div class="skills-list">
+                <div class="skill-item">
+                    <strong>Web Front-End</strong>
+                    Domínio de HTML5, CSS3 e interfaces responsivas com foco em micro-animações e efeitos de scroll.
+                </div>
+                <div class="skill-item">
+                    <strong>IA & Processo Criativo</strong>
+                    Uso avançado de Inteligência Artificial como suporte estratégico para design e produtividade.
+                </div>
+                <div class="skill-item">
+                    <strong>Audiovisual Dinâmico</strong>
+                    Edição e mixagem profissional focada em formatos de alta retenção (Reels e Shorts).
+                </div>
+                <div class="skill-item">
+                    <strong>Design de Moda & Têxtil</strong>
+                    Desenvolvimento de conceitos autorais e sustentáveis, unindo arte e técnica.
+                </div>
+            </div>
+        </div>
 
-        <div id="projetos" class="tab-content" style="display: none;">
-            <h2>Projetos Selecionados</h2>
-            <div class="project-grid">
-                <a href="https://github.com/DanielUnibes" target="_blank" class="project-link">
-                    <div class="project-card"><h3>Interface & Web</h3></div>
-                </a>
-                <a href="https://www.kittl.com/design/mobiliza-hood-i3A7zXuv" target="_blank" class="project-link">
-                    <div class="project-card"><h3>Fashion Design</h3></div>
-                </a>
-            </div>
-        </div>
+        <div id="projetos" class="tab-content">
+            <h2>Projetos Selecionados</h2>
+            <div class="project-grid">
+                <a href="https://github.com/DanielUnibes" target="_blank" class="project-link">
+                    <div class="project-card">
+                        <h3>Interface & Web</h3>
+                        <p>Desenvolvimento de Landing Pages focadas em experiência do usuário.</p>
+                    </div>
+                </a>
+                <a href="https://www.kittl.com/design/mobiliza-hood-i3A7zXuv" target="_blank" class="project-link">
+                    <div class="project-card">
+                        <h3>Fashion Design</h3>
+                        <p>Criação de vestuário contemporâneo e identidade visual para marcas.</p>
+                    </div>
+                </a>
+                <a href="https://www.bandlab.com/dwnete" target="_blank" class="project-link">
+                    <div class="project-card">
+                        <h3>Sound Engineering</h3>
+                        <p>Produção e engenharia de som para conteúdo audiovisual.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
 
-        <div id="contatos" class="tab-content" style="display: none;">
-            <h2>Vamos Conversar?</h2>
-            <p>📱 WhatsApp: <a href="https://wa.me/5511913613238" target="_blank">11 91361-3238</a></p>
-            <p>✉️ E-mail: <a href="mailto:danielfalmeida1808@gmail.com">danielfalmeida1808@gmail.com</a></p>
-        </div>
-    </main>
-</div>
-
-<div id="meuModal" class="modal">
-    <div class="modal-content">
-        <span class="fechar-modal" id="fechar">&times;</span>
-        <h2>Links Rápidos</h2>
-        <p>Você pode colocar aqui o seu Instagram, LinkedIn ou um botão para baixar seu currículo.</p>
-        <hr>
-        <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
-            <a href="#" style="text-decoration: none; font-weight: bold; color: #0077b5;">LinkedIn</a>
-            <a href="#" style="text-decoration: none; font-weight: bold; color: #e4405f;">Instagram</a>
-        </div>
-    </div>
+        <div id="contatos" class="tab-content">
+            <h2>Vamos Conversar?</h2>
+            <p>Disponível para projetos desafiadores e colaborações inovadoras.</p>
+            <div style="margin-top: 20px;">
+                <p>📱 <strong>WhatsApp:</strong><br>
+                <a href="https://wa.me/5511913613238" target="_blank" class="contact-link">11 91361-3238</a></p>
+                <p>✉️ <strong>E-mail:</strong><br>
+                <a href="mailto:danielfalmeida1808@gmail.com" class="contact-link">danielfalmeida1808@gmail.com</a></p>
+            </div>
+            <hr style="margin: 40px 0; border: 0; border-top: 1px solid #ddd;">
+            <p style="font-size: 0.85rem; color: #aaa;">Daniel Felix | São Paulo, Brasil | © 2026</p>
+        </div>
+    </main>
 </div>
 
 <script>
-    // --- LÓGICA DAS ABAS LATERAIS ---
-    function openTab(evt, tabName) {
-        let contents = document.getElementsByClassName("tab-content");
-        let buttons = document.getElementsByClassName("tab-btn");
-        
-        for (let i = 0; i < contents.length; i++) {
-            contents[i].style.display = 'none';
-            contents[i].classList.remove("active");
-        }
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove("active");
-        }
-        
-        const activeContent = document.getElementById(tabName);
-        activeContent.style.display = 'block';
-        setTimeout(() => activeContent.classList.add("active"), 10);
-        evt.currentTarget.classList.add("active");
-    }
-
-    // --- LÓGICA DA ABA INTERNA (MODAL) ---
-    const modal = document.getElementById("meuModal");
-    const btnFoto = document.getElementById("abrirModal");
-    const spanFechar = document.getElementById("fechar");
-
-    btnFoto.onclick = () => modal.style.display = "block";
-    spanFechar.onclick = () => modal.style.display = "none";
-    
-    // Fecha se clicar fora da caixa branca
-    window.onclick = (event) => {
-        if (event.target == modal) modal.style.display = "none";
-    }
+    function openTab(evt, tabName) {
+        let contents = document.getElementsByClassName("tab-content");
+        let buttons = document.getElementsByClassName("tab-btn");
+        for (let i = 0; i < contents.length; i++) {
+            contents[i].classList.remove("active");
+            contents[i].style.display = 'none';
+        }
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+        const activeContent = document.getElementById(tabName);
+        activeContent.style.display = 'block';
+        setTimeout(() => activeContent.classList.add("active"), 10);
+        evt.currentTarget.classList.add("active");
+        document.querySelector('.content-area').scrollTop = 0;
+    }
 </script>
 
+</div>
 </body>
 </html>
+
+coloque a imagempara ser clicavel (a foto de perfil)
